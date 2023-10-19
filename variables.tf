@@ -19,5 +19,5 @@ variable "ec2_instance_count" {
 variable "ec2_int_type" {
   description = "EC2 Instance Count"
   type        = string
-  default     = "t2.micro"
+  default     = "t2.medium"
 }
