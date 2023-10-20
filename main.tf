@@ -18,7 +18,7 @@ resource "aws_security_group" "vpc-ssh" {
   }
 }
 
-# Create Security Group - Web Traffic
+# Create Security Group - Web Traffic only
 resource "aws_security_group" "vpc-web" {
   name        = "vpc-web"
   description = "Dev VPC Web"
@@ -59,7 +59,7 @@ resource "aws_instance" "my-ec2-vm" {
     sudo yum install httpd -y
     sudo systemctl enable httpd
     sudo systemctl start httpd
-    echo "<h1>Welcome to GreensTechnology ! AWS Infra created using Terraform in ap-south-1 Region</h1>" > /var/www/html/index.html
+    echo "<h1>Welcome to GreensTechnology ! AWS Infra created using Terraform in ap-south-1</h1>" > /var/www/html/index.html
     EOF
   vpc_security_group_ids = [aws_security_group.vpc-ssh.id, aws_security_group.vpc-web.id]
   tags = {
